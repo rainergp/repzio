@@ -41,9 +41,7 @@
         max-width: 1320px;
     }
     .item {
-        /*flex: 0 0 auto;*/
-        margin: 20px;
-
+        margin: 0 20px;
         order: 0;
         flex: 0 0 auto;
         align-self: auto;

@@ -1,7 +1,7 @@
 <template>
     <div class="content-wrapper">
         <img alt="Company logo" :src="'http://images.repzio.com/productimages/' + jsonData.ManufacturerID + '/logo' + jsonData.ManufacturerID + '_lg.jpg?height=150'">
-<!--        <h1>Products</h1>-->
+        <h1>{{jsonData.CompanyName}}</h1>
         <product-list-cmp v-bind:data="jsonData.items"></product-list-cmp>
         <company-info-cmp v-bind:data="jsonData.SalesRep"></company-info-cmp>
     </div>
