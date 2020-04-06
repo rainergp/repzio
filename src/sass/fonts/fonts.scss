@@ -1,0 +1,87 @@
+@import "variables";
+@import "mixins";
+
+@font-face {
+  font-family: $RobotoFamily;
+  @include font-definition($RobotoName, $RobotoPath, $RobotoVersion, "Thin");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $RobotoFamily;
+  @include font-definition($RobotoName, $RobotoPath, $RobotoVersion, "ThinItalic");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: $RobotoFamily;
+  @include font-definition($RobotoName, $RobotoPath, $RobotoVersion, "Light");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $RobotoFamily;
+  @include font-definition($RobotoName, $RobotoPath, $RobotoVersion, "LightItalic");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: $RobotoFamily;
+  @include font-definition($RobotoName, $RobotoPath, $RobotoVersion, "Regular");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $RobotoFamily;
+  @include font-definition($RobotoName, $RobotoPath, $RobotoVersion, "RegularItalic");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: $RobotoFamily;
+  @include font-definition($RobotoName, $RobotoPath, $RobotoVersion, "Medium");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $RobotoFamily;
+  @include font-definition($RobotoName, $RobotoPath, $RobotoVersion, "MediumItalic");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: $RobotoFamily;
+  @include font-definition($RobotoName, $RobotoPath, $RobotoVersion, "Bold");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $RobotoFamily;
+  @include font-definition($RobotoName, $RobotoPath, $RobotoVersion, "BoldItalic");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: $RobotoFamily;
+  @include font-definition($RobotoName, $RobotoPath, $RobotoVersion, "Black");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $RobotoFamily;
+  @include font-definition($RobotoName, $RobotoPath, $RobotoVersion, "BlackItalic");
+  font-weight: 900;
+  font-style: italic;
+}
+

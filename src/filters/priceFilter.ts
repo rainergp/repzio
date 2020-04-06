@@ -1,3 +1,3 @@
 export function priceFilter(price: number) {
-    return '$' + price.toFixed(2).toString();
+  return '$' + price.toFixed(2).toString();
 }
