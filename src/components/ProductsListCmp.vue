@@ -1,5 +1,5 @@
 <template>
-  <div v-if="products" class="container">
+  <div v-if="products" class="view-wrapper">
     <div class="item" v-for="product in products" :key="product.id">
       <product-cmp v-bind:product="product"></product-cmp>
     </div>
@@ -33,13 +33,15 @@
     protected async mounted (): Promise<void> {
       await this.jsonDataService.getProducts().then((result) => {
         this.products = result
-      })
+      });
+
+      // window.scrollTo(0, 0);
     }
   }
 </script>
 
 <style scoped lang="scss">
-  .container {
+  .view-wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

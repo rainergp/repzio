@@ -29,12 +29,6 @@
 
 <style scoped lang="scss">
   footer {
-    /*width: 100%;*/
-    /*background-color: #eae9e9;*/
-    /*!*border-radius: 11px;*!*/
-    /*padding: 0 15px;*/
-    /*margin-top: 20px;*/
-    /*font-size: 14px;*/
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -44,6 +38,7 @@
     width: 100%;
     background-color: #262122;
     color: #a4a1a3;
+    margin-top: 20px;
 
     h1 {
       font-weight: 400;

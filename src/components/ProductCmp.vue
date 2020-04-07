@@ -59,7 +59,7 @@
       justify-content: center;
       align-content: center;
       align-items: center;
-      box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 
       img {
         max-width: 245px;

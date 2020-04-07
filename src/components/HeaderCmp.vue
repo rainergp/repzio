@@ -56,8 +56,6 @@
       height: 100%;
       max-width: 1680px;
       margin: 0 auto;
-      /*background-color: white;*/
-      /*box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);*/
 
       .logo {
         order: 0;
@@ -128,9 +126,9 @@
 
       p {
         line-height: 27px;
-        font-size: 21px;
+        font-size: 20px;
         margin: 22px 0 0;
-        padding: 0 30px;
+        padding: 0 50px;
       }
     }
 

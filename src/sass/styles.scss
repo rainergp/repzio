@@ -1,5 +1,9 @@
 @import "./fonts/fonts";
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -8,4 +12,8 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  zoom: 80%;
 }

@@ -1,7 +1,7 @@
 <template>
   <fragment>
     <header-cmp v-bind:contact-info="contactInfo" v-bind:manufacturer-settings="manufacturerSettings"></header-cmp>
-    <div id="app">
+    <div id="content">
       <router-view/>
     </div>
     <footer-cmp v-bind:contact-info="contactInfo"></footer-cmp>
@@ -48,10 +48,7 @@
 <style lang="scss">
   @import 'sass/styles';
 
-  #app {
-    /*display: flex;*/
-    /*text-align: center;*/
-    /*flex-direction: column;*/
-    /*align-items: center;*/
+  #content {
+    flex: 1;
   }
 </style>
