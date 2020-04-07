@@ -1,11 +1,10 @@
 <template>
   <fragment>
-    <header>
-      <header-cmp v-bind:contact-info="contactInfo" v-bind:manufacturer-settings="manufacturerSettings"></header-cmp>
-    </header>
+    <header-cmp v-bind:contact-info="contactInfo" v-bind:manufacturer-settings="manufacturerSettings"></header-cmp>
     <div id="app">
       <router-view/>
     </div>
+    <footer-cmp v-bind:contact-info="contactInfo"></footer-cmp>
     <footer>
 
     </footer>
@@ -20,12 +19,13 @@
   import IDataService from '@/services/IDataService';
   import HeaderCmp from '@/components/HeaderCmp.vue';
   import IManufacturerSettings from "@/models/IManufacturerSettings";
+  import FooterCmp from "@/components/FooterCmp.vue";
 
   @Component({
     name: 'App',
     components: {
-      HeaderCmp
-    //   ProductListCmp,
+      HeaderCmp,
+      FooterCmp,
     }
   })
 

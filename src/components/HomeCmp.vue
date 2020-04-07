@@ -6,7 +6,6 @@
 
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
-  import CompanyInfoCmp from '@/components/CompanyInfoCmp.vue'
   import ProductListCmp from "@/components/ProductListCmp.vue";
   import { inject } from 'inversify-props'
   import { Registry } from '@/registry'
@@ -16,7 +15,6 @@
   @Component({
     name: 'HomeCmp',
     components: {
-      CompanyInfoCmp,
       ProductListCmp,
     }
   })

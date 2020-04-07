@@ -1,8 +1,8 @@
 <template>
-  <div class="content-wrapper">
+  <header>
     <img v-if="manufacturerSettings" alt="Company logo" :src="'http://images.repzio.com/productimages/' + manufacturerSettings.id + '/logo' + manufacturerSettings.id + '_lg.jpg?height=150'">
     <h1 v-if="contactInfo">{{contactInfo.firstName}} {{contactInfo.lastName}} - {{contactInfo.email}}</h1>
-  </div>
+  </header>
 </template>
 
 <script lang="ts">
@@ -21,7 +21,7 @@
 </script>
 
 <style scoped lang="scss">
-  .content-wrapper {
+  header {
     display: flex;
     text-align: center;
     flex-direction: column;
