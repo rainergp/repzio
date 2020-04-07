@@ -5,9 +5,6 @@
       <router-view/>
     </div>
     <footer-cmp v-bind:contact-info="contactInfo"></footer-cmp>
-    <footer>
-
-    </footer>
   </fragment>
 </template>
 
@@ -52,13 +49,9 @@
   @import 'sass/styles';
 
   #app {
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
+    /*display: flex;*/
+    /*text-align: center;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
   }
 </style>

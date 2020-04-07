@@ -43,14 +43,15 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     align-content: flex-start;
-    align-items: flex-start;
-    max-width: 1320px;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1680px;
+    margin: 0 auto;
   }
 
   .item {
-    margin: 0 20px;
+    margin: 0 25px 30px;
     order: 0;
     flex: 0 0 auto;
     align-self: auto;
