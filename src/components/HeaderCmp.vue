@@ -3,7 +3,7 @@
     <div class="bar-wrapper">
       <div class="bar">
         <img class="logo" v-if="manufacturerSettings" alt="Company logo" :src="'http://images.repzio.com/productimages/' + manufacturerSettings.id + '/logo' + manufacturerSettings.id + '_lg.jpg?height=150'">
-        <h3 class="contact" v-if="contactInfo">{{contactInfo.firstName}} {{contactInfo.lastName}} - {{contactInfo.email}}</h3>
+        <a class="contact" v-if="contactInfo" v-bind:href="'mailto:' + contactInfo.email">{{contactInfo.firstName}} {{contactInfo.lastName}} - {{contactInfo.email}}</a>
       </div>
     </div>
     <h1>A Test Demo</h1>
@@ -73,6 +73,12 @@
         color: #555;
         line-height: 19px;
         margin: 57px 57px 0 0;
+        text-decoration: none;
+        font-weight: 600;
+
+        &:hover {
+          color: #ff7700;
+        }
       }
     }
 

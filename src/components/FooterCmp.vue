@@ -3,7 +3,7 @@
     <div v-if="contactInfo">
       <h1>{{contactInfo.firstName}} {{contactInfo.lastName}}</h1>
       <hr/>
-      <h2>{{contactInfo.email}}</h2>
+      <a class="contact" v-if="contactInfo" v-bind:href="'mailto:' + contactInfo.email">{{contactInfo.email}}</a>
       <p>Phone: {{contactInfo.phone | phoneFilter}} - <b>Cell:</b> {{contactInfo.cellPhone | phoneFilter}}</p>
       <p>{{contactInfo.city}}, {{contactInfo.state}}, {{contactInfo.postalCode}}</p>
     </div>
@@ -52,6 +52,18 @@
       margin: 10px 0;
     }
 
+    a {
+      color: #a4a1a3;
+      font-weight: 400;
+      font-size: 20px;
+      margin: 15px 0;
+      text-decoration: none;
+
+      &:hover {
+        color: #ff7700;
+      }
+    }
+
     p {
       font-weight: 400;
       margin: 12px 0 0;
@@ -62,7 +74,7 @@
       width: 36px;
       border: 1px solid #888;
       height: 0;
-      margin: 0 auto;
+      margin: 0 auto 15px;
       padding: 0;
     }
   }

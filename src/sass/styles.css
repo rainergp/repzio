@@ -74,4 +74,8 @@ body {
   min-height: 100%;
   zoom: 80%; }
 
+@media screen and (max-width: 499px) {
+  body {
+    zoom: 100%; } }
+
 /*# sourceMappingURL=styles.css.map */
