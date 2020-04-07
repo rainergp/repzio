@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="item" v-for="item in data" :key="item.ProductID">
+    <div class="item" v-for="item in products" :key="item.id">
       <product-cmp v-bind:data="item" @click.native="productClick(item)"></product-cmp>
     </div>
     <details-modal-cmp></details-modal-cmp>
@@ -12,6 +12,7 @@
   import {Component, Prop, Vue} from 'vue-property-decorator'
   import ProductCmp from '@/components/ProductCmp.vue'
   import DetailsModalCmp from "@/components/DetailsModalCmp.vue";
+  import IProduct from "@/models/IProduct";
 
   @Component({
     name: 'ProductListCmp',
@@ -22,10 +23,10 @@
   })
 
   export default class ProductListCmp extends Vue {
-    @Prop() private data!: object;
+    @Prop() private products!: IProduct[];
 
-    private productClick(data: object): void {
-      this.$root.$emit('showDetailsPopup', data)
+    private productClick(product: IProduct): void {
+      this.$root.$emit('showDetailsPopup', product)
     }
   }
 </script>

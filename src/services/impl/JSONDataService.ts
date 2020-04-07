@@ -3,6 +3,7 @@ import IProduct from '@/models/IProduct'
 import IContactInfo from '@/models/IContactInfo'
 import IDataService from "@/services/IDataService";
 import jsonData from '@/db/data.json'
+import IManufacturerSettings from "@/models/IManufacturerSettings";
 
 @injectable()
 export default class DataService implements IDataService {
@@ -61,5 +62,24 @@ export default class DataService implements IDataService {
       }
     }
     return contactInfo;
+  }
+
+  public async getManufacturerSettings(): Promise<IManufacturerSettings> {
+    let settings = {} as IManufacturerSettings;
+
+    try {
+      const settingsData = jsonData.manufacturerSetting;
+
+      // TODO: Implement object mapper so we can avoid this
+      settings = {
+        id: settingsData.ManufacturerID,
+      };
+    }
+    catch (e) {
+      if (e) {
+        return e.message;
+      }
+    }
+    return settings;
   }
 }

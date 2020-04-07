@@ -1,24 +1,22 @@
 <template>
   <div class="content-wrapper">
-    <img alt="Company logo"
-         :src="'http://images.repzio.com/productimages/' + jsonData.ManufacturerID + '/logo' + jsonData.ManufacturerID + '_lg.jpg?height=150'">
-    <h1>{{jsonData.CompanyName}}</h1>
+    <img v-if="manufacturerSettings" alt="Company logo" :src="'http://images.repzio.com/productimages/' + manufacturerSettings.id + '/logo' + manufacturerSettings.id + '_lg.jpg?height=150'">
+    <h1 v-if="contactInfo">{{contactInfo.firstName}} {{contactInfo.lastName}} - {{contactInfo.email}}</h1>
   </div>
 </template>
 
 <script lang="ts">
-  import {Component, Vue} from 'vue-property-decorator';
-  import jsonData from '@/db/data.json'
+  import {Component, Prop, Vue} from 'vue-property-decorator';
+  import IManufacturerSettings from "@/models/IManufacturerSettings";
+  import IContactInfo from "@/models/IContactInfo";
 
   @Component({
     name: 'HeaderCmp',
   })
 
   export default class HeaderCmp extends Vue {
-
-    get jsonData(): object {
-      return jsonData;
-    }
+    @Prop() private manufacturerSettings!: IManufacturerSettings;
+    @Prop() private contactInfo!: IContactInfo;
   }
 </script>
 

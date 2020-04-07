@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { container } from 'inversify-props';
 import IDataService from "@/services/IDataService";
 import JSONDataService from '@/services/impl/JSONDataService'

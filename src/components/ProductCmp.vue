@@ -1,8 +1,8 @@
 <template>
   <div class="product-thumbnail">
-    <img :alt="data.ItemName" :src="data.PhotoName + '?height=100'"/>
-    <div class="name">{{data.ItemName}}</div>
-    <div class="price">{{data.BasePrice | priceFilter}}</div>
+    <img :alt="data.name" :src="data.photo + '?height=100'"/>
+    <div class="name">{{data.name}}</div>
+    <div class="price">{{data.price | priceFilter}}</div>
   </div>
 </template>
 
