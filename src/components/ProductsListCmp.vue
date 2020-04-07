@@ -1,9 +1,8 @@
 <template>
   <div v-if="products" class="container">
     <div class="item" v-for="product in products" :key="product.id">
-      <product-cmp v-bind:product="product" @click.native="productClick(product)"></product-cmp>
+      <product-cmp v-bind:product="product"></product-cmp>
     </div>
-    <product-details-cmp></product-details-cmp>
   </div>
 </template>
 
@@ -33,13 +32,8 @@
 
     protected async mounted (): Promise<void> {
       await this.jsonDataService.getProducts().then((result) => {
-        console.log('PRODUCTS: ', result);
         this.products = result
       })
-    }
-
-    private productClick(product: IProduct): void {
-      this.$root.$emit('showProductDetails', product)
     }
   }
 </script>

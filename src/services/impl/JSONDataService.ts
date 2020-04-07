@@ -8,6 +8,29 @@ import IManufacturerSettings from "@/models/IManufacturerSettings";
 @injectable()
 export default class DataService implements IDataService {
 
+  public async getProduct(id: number): Promise<IProduct> {
+    let product = {} as IProduct;
+
+    try {
+      const item: any = jsonData.items.find(p => p.ProductID === id);
+
+      // TODO: Implement object mapper so we can avoid this
+      product = {
+        id: item.ProductID,
+        name: item.ItemName,
+        photo: item.PhotoName,
+        price: item.BasePrice,
+        description: item.Description,
+        dimensions: item.Dimensions
+      };
+    }
+    catch (e) {
+      return e.message;
+    }
+
+    return product;
+  }
+
   public async getProducts(): Promise<IProduct[]> {
     const products = [] as IProduct[];
 
@@ -29,9 +52,7 @@ export default class DataService implements IDataService {
       }
     }
     catch (e) {
-      if (e) {
-        return e.message;
-      }
+      return e.message;
     }
 
     return products;
@@ -57,9 +78,7 @@ export default class DataService implements IDataService {
       };
     }
     catch (e) {
-      if (e) {
-        return e.message;
-      }
+      return e.message;
     }
     return contactInfo;
   }
@@ -76,9 +95,7 @@ export default class DataService implements IDataService {
       };
     }
     catch (e) {
-      if (e) {
-        return e.message;
-      }
+      return e.message;
     }
     return settings;
   }

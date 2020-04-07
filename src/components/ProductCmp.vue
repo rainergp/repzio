@@ -1,9 +1,11 @@
 <template>
-  <div v-if="product" class="product-thumbnail">
-    <img :alt="product.name" :src="product.photo + '?height=100'"/>
-    <div class="name">{{product.name}}</div>
-    <div class="price">{{product.price | priceFilter}}</div>
-  </div>
+    <router-link :to="{ name: 'ProductDetailsView', params: { id: product.id } }">
+      <div v-if="product" class="product-thumbnail">
+        <img :alt="product.name" :src="product.photo + '?height=100'"/>
+        <div class="name">{{product.name}}</div>
+        <div class="price">{{product.price | priceFilter}}</div>
+      </div>
+    </router-link>
 </template>
 
 <script lang="ts">
