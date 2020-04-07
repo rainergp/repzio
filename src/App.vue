@@ -55,7 +55,10 @@
     font-family: Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    display: flex;
     text-align: center;
-    color: #2c3e50;
+    flex-direction: column;
+    align-items: center;
   }
 </style>

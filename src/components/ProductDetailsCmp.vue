@@ -3,12 +3,12 @@
     <div v-if="isOpen">
       <div class="overlay" @click.self="isOpen = false">
         <div class="modal">
-          <div class="image" v-bind:style="{ 'background-image': 'url(' + data.PhotoName + '?width=500' + ')' }"/>
-          <h3 class="name">{{data.ItemName}}</h3>
-          <h2 class="price">{{data.BasePrice | priceFilter}}</h2>
-          <div class="info"><b>Id:</b> {{data.ItemID}}</div>
-          <div class="info" v-if="data.Description !== '' "><b>Description:</b> {{data.Description}}</div>
-          <div class="info"><b>Dimensions:</b> {{data.Dimensions}}</div>
+          <div class="image" v-bind:style="{ 'background-image': 'url(' + product.photo + '?width=500' + ')' }"/>
+          <h3 class="name">{{product.name}}</h3>
+          <h2 class="price">{{product.price | priceFilter}}</h2>
+          <div class="info"><b>Id:</b> {{product.id}}</div>
+          <div class="info" v-if="product.description !== '' "><b>Description:</b> {{product.description}}</div>
+          <div class="info"><b>Dimensions:</b> {{product.dimensions}}</div>
         </div>
       </div>
     </div>
@@ -18,44 +18,24 @@
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
   import {priceFilter} from '@/filters/priceFilter'
+  import IProduct from "@/models/IProduct";
 
   @Component({
-    name: 'DetailsModalCmp',
+    name: 'ProductDetailsCmp',
     filters: {
       priceFilter
     }
   })
 
-  export default class DetailsModalCmp extends Vue {
-    private dpIsOpen: boolean;
-    private dpData: object;
+  export default class ProductDetailsCmp extends Vue {
+    private isOpen: boolean | null = false;
 
-    get isOpen(): boolean {
-      return this.dpIsOpen;
-    }
+    private product: IProduct | null = null;
 
-    set isOpen(value: boolean) {
-      this.dpIsOpen = value;
-    }
-
-    get data(): object {
-      return this.dpData;
-    }
-
-    set data(value: object) {
-      this.dpData = value;
-    }
-
-    constructor() {
-      super();
-      this.dpIsOpen = false;
-      this.dpData = {};
-    }
-
-    mounted() {
-      this.$root.$on('showDetailsPopup', (data: object) => {
+    protected mounted(): void {
+      this.$root.$on('showProductDetails', (product: IProduct) => {
         this.isOpen = true;
-        this.data = data;
+        this.product = product;
       })
     }
   }

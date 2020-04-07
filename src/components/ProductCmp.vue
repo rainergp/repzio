@@ -1,8 +1,8 @@
 <template>
-  <div class="product-thumbnail">
-    <img :alt="data.name" :src="data.photo + '?height=100'"/>
-    <div class="name">{{data.name}}</div>
-    <div class="price">{{data.price | priceFilter}}</div>
+  <div v-if="product" class="product-thumbnail">
+    <img :alt="product.name" :src="product.photo + '?height=100'"/>
+    <div class="name">{{product.name}}</div>
+    <div class="price">{{product.price | priceFilter}}</div>
   </div>
 </template>
 
@@ -18,7 +18,7 @@
   })
 
   export default class ProductCmp extends Vue {
-    @Prop() private data!: object;
+    @Prop() private product!: object;
   }
 </script>
 
