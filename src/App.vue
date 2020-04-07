@@ -1,7 +1,15 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+  <fragment>
+    <header>
+
+    </header>
+    <div id="app">
+      <router-view/>
+    </div>
+    <footer>
+
+    </footer>
+  </fragment>
 </template>
 
 <style lang="scss">

@@ -9,10 +9,16 @@
 </template>
 
 <script lang="ts">
-  import {Component, Vue} from 'vue-property-decorator';
+  import {Component, Vue, Prop} from 'vue-property-decorator';
   import CompanyInfoCmp from '@/components/CompanyInfoCmp.vue'
   import ProductListCmp from "@/components/ProductListCmp.vue";
+
   import jsonData from '@/db/data.json'
+
+  import { inject } from 'inversify-props'
+  import { Registry } from '@/registry'
+  import IProduct from '@/models/IProduct'
+  import IDataService from '@/services/IDataService'
 
   @Component({
     name: 'HomeCmp',
@@ -24,8 +30,20 @@
 
   export default class HomeCmp extends Vue {
 
+    @Prop(Object) products!: IProduct[];
+
+    @inject(Registry.IDataService)
+    private jsonDataService!: IDataService;
+
     get jsonData(): object {
       return jsonData;
+    }
+
+    protected async mounted (): Promise<void> {
+      await this.jsonDataService.getProducts().then((result) => {
+        console.log('RESULTS: ', result);
+        // this.products = result
+      })
     }
   }
 </script>
