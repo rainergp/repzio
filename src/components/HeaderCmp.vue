@@ -7,9 +7,12 @@
       </div>
     </div>
     <h1>A Test Demo</h1>
+    <button v-on:click="btnIncrementClick">Increment</button>
+    <button v-on:click="btnDecrementClick">Decrement</button>
+    <h2>{{count}}</h2>
     <hr/>
-    <p>Check out these great products I have selected for you.</p>
-    <p>Email me back which ones you are interested in.</p>
+<!--    <p>Check out these great products I have selected for you.</p>-->
+<!--    <p>Email me back which ones you are interested in.</p>-->
   </header>
 </template>
 
@@ -17,6 +20,8 @@
   import {Component, Prop, Vue} from 'vue-property-decorator';
   import IManufacturerSettings from "@/models/IManufacturerSettings";
   import IContactInfo from "@/models/IContactInfo";
+  import {State, Mutation} from "vuex-class";
+  import {MutationType} from "@/store/mutation-types";
 
   @Component({
     name: 'HeaderCmp',
@@ -25,6 +30,18 @@
   export default class HeaderCmp extends Vue {
     @Prop() private manufacturerSettings!: IManufacturerSettings;
     @Prop() private contactInfo!: IContactInfo;
+
+    @State private count!: number;
+    @Mutation(MutationType.INCREMENT) private increment: any;
+    @Mutation(MutationType.DECREMENT) private decrement: any;
+
+    private btnIncrementClick(event: Event): void {
+      this.increment(10);
+    }
+
+    private btnDecrementClick(event: Event): void {
+      this.decrement(10);
+    }
   }
 </script>
 
@@ -36,6 +53,11 @@
     align-items: center;
     height: 417px;
     max-height: 417px;
+
+    button {
+      width: 100px;
+      height: 50px;
+    }
 
     .bar-wrapper {
       width: 100%;

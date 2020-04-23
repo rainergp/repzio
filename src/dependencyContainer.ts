@@ -4,6 +4,6 @@ import JSONDataService from '@/services/impl/JSONDataService'
 import { Registry } from "@/registry";
 
 export default function buildDependencyContainer (): void {
-  // container.addSingleton<IDataService>(JSONDataService);
+  // container.addSingleton<IDataService>(JSONDataService, Registry.IDataService);
   container.bind<IDataService>(Registry.IDataService).to(JSONDataService);
 }
