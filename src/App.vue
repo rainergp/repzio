@@ -17,7 +17,9 @@
   // import IManufacturerSettings from "@/models/IManufacturerSettings";
   import HeaderCmp from '@/components/HeaderCmp.vue';
   import FooterCmp from "@/components/FooterCmp.vue";
-  import {Action, Getter} from "vuex-class";
+  import {namespace} from "vuex-class";
+
+  const jsonData = namespace('jsonDataVuexModule')
 
   @Component({
     name: 'App',
@@ -32,10 +34,10 @@
     // @inject(Registry.IDataService)
     // private jsonDataService!: IDataService;
 
-    @Getter private contactInfo: IContactInfo | null = null;
+    @jsonData.Getter private contactInfo: any;
     // private manufacturerSettings: IManufacturerSettings | null = null;
 
-    @Action private getContactInfo!: () => Promise<void>;
+    @jsonData.Action private getContactInfo!: () => Promise<void>;
 
     protected async mounted (): Promise<void> {
       // await this.jsonDataService.getContactInfo().then((result) => {
