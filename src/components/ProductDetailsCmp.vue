@@ -17,10 +17,10 @@
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
   import {priceFilter} from '@/filters/priceFilter'
-  import {inject} from "inversify-props";
-  import {Registry} from "@/registry";
-  import IDataService from "@/services/IDataService";
   import IProduct from "@/models/IProduct";
+  import {namespace} from "vuex-class";
+
+  const jsonData = namespace('jsonDataVuexModule')
 
   @Component({
     name: 'ProductDetailsCmp',
@@ -30,19 +30,15 @@
   })
 
   export default class ProductDetailsCmp extends Vue {
-    @inject(Registry.IDataService)
-    private jsonDataService!: IDataService;
 
-    private product: IProduct | null = null;
+    @jsonData.Getter private product: IProduct | undefined;
+
+    @jsonData.Action private getProduct!: (id: number) => Promise<void>;
 
     protected async mounted (): Promise<void> {
-      await this.jsonDataService.getProduct(Number(this.$route.params.id)).then((result) => {
-        this.product = result
-      });
-
+      await this.getProduct(Number(this.$route.params.id));
       window.scrollTo(0, 0);
     }
-
   }
 </script>
 
@@ -126,9 +122,7 @@
         margin-bottom: 15px;
         font-size: 17px;
       }
-
     }
-
   }
 
   @media screen and (max-width: 880px) {

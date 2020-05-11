@@ -1,23 +1,20 @@
 <template>
   <fragment>
-<!--    <header-cmp v-bind:contact-info="contactInfo" v-bind:manufacturer-settings="manufacturerSettings"></header-cmp>-->
-<!--    <div id="content">-->
-<!--      <router-view/>-->
-<!--    </div>-->
+    <header-cmp v-bind:contact-info="contactInfo" v-bind:manufacturer-settings="manufacturerSettings"></header-cmp>
+    <div id="content">
+      <router-view/>
+    </div>
     <footer-cmp v-bind:contact-info="contactInfo"></footer-cmp>
   </fragment>
 </template>
 
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
-  // import { inject } from 'inversify-props';
-  // import { Registry } from '@/registry';
-  import IContactInfo from "@/models/IContactInfo";
-  // import IDataService from '@/services/IDataService';
-  // import IManufacturerSettings from "@/models/IManufacturerSettings";
   import HeaderCmp from '@/components/HeaderCmp.vue';
   import FooterCmp from "@/components/FooterCmp.vue";
   import {namespace} from "vuex-class";
+  import IContactInfo from "@/models/IContactInfo";
+  import IManufacturerSettings from "@/models/IManufacturerSettings";
 
   const jsonData = namespace('jsonDataVuexModule')
 
@@ -31,22 +28,15 @@
 
   export default class App extends Vue {
 
-    // @inject(Registry.IDataService)
-    // private jsonDataService!: IDataService;
-
-    @jsonData.Getter private contactInfo: any;
-    // private manufacturerSettings: IManufacturerSettings | null = null;
+    @jsonData.Getter private contactInfo: IContactInfo | undefined;
+    @jsonData.Getter private manufacturerSettings: IManufacturerSettings | undefined;
 
     @jsonData.Action private getContactInfo!: () => Promise<void>;
+    @jsonData.Action private getManufacturerSettings!: () => Promise<void>;
 
     protected async mounted (): Promise<void> {
-      // await this.jsonDataService.getContactInfo().then((result) => {
-      //   this.contactInfo = result
-      // });
       await this.getContactInfo();
-      // await this.jsonDataService.getManufacturerSettings().then((result) => {
-      //   this.manufacturerSettings = result
-      // });
+      await this.getManufacturerSettings();
     }
   }
 </script>

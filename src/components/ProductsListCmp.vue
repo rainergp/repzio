@@ -1,7 +1,5 @@
 <template>
   <div v-if="products" class="view-wrapper">
-    <h2>{{count}}</h2>
-    <h3>{{doneTodos}}</h3>
     <div class="item" v-for="product in products" :key="product.id">
       <product-cmp v-bind:product="product"></product-cmp>
     </div>
@@ -14,10 +12,9 @@
   import ProductCmp from '@/components/ProductCmp.vue'
   import ProductDetailsCmp from "@/components/ProductDetailsCmp.vue";
   import IProduct from "@/models/IProduct";
-  import {inject} from "inversify-props";
-  import {Registry} from "@/registry";
-  import IDataService from "@/services/IDataService";
-  import {State, Getter} from "vuex-class";
+  import {namespace} from "vuex-class";
+
+  const jsonData = namespace('jsonDataVuexModule')
 
   @Component({
     name: 'ProductsListCmp',
@@ -28,18 +25,13 @@
   })
 
   export default class ProductsListCmp extends Vue {
-    @inject(Registry.IDataService)
-    private jsonDataService!: IDataService;
 
-    private products: IProduct[] | null = null;
+    @jsonData.Getter private products: IProduct[] | undefined;
 
-    @State private count!: number;
-    @Getter private doneTodos: any;
+    @jsonData.Action private getProducts!: () => Promise<void>;
 
     protected async mounted (): Promise<void> {
-      await this.jsonDataService.getProducts().then((result) => {
-        this.products = result
-      });
+      await this.getProducts();
       // window.scrollTo(0, 0);
     }
   }

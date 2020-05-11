@@ -6,13 +6,8 @@
         <a class="contact" v-if="contactInfo" v-bind:href="'mailto:' + contactInfo.email">{{contactInfo.firstName}} {{contactInfo.lastName}} - {{contactInfo.email}}</a>
       </div>
     </div>
-    <h1>A Test Demo</h1>
-    <button v-on:click="btnIncrementClick">Increment</button>
-    <button v-on:click="btnDecrementClick">Decrement</button>
-    <h2>{{count}}</h2>
-    <hr/>
-<!--    <p>Check out these great products I have selected for you.</p>-->
-<!--    <p>Email me back which ones you are interested in.</p>-->
+    <p>Check out these great products I have selected for you.</p>
+    <p>Email me back which ones you are interested in.</p>
   </header>
 </template>
 
