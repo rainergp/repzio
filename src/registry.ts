@@ -3,5 +3,6 @@ export interface IRegistry {
 }
 
 export const Registry: IRegistry = {
-  IDataService: Symbol('IDataService')
+  IDataService: Symbol('IDataService'),
+  IHttpStatusMockService: Symbol('IHttpStatusMockService'),
 };
