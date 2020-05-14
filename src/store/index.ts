@@ -1,7 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import createPlugin from 'logrocket-vuex';
 import JSONDataVuexModule from "@/store/modules/JSONDataVuexModule";
 import HttpStatusMockVuexModule from "@/store/modules/HttpStatusMockVuexModule";
+import LogRocket from "logrocket";
+
+const logrocketPlugin = createPlugin(LogRocket);
 
 Vue.use(Vuex);
 
@@ -12,5 +16,6 @@ export default new Vuex.Store({
   modules: {
     jsonDataVuexModule: JSONDataVuexModule,
     httpStatusMockVuexModule: HttpStatusMockVuexModule,
-  }
+  },
+  plugins: [logrocketPlugin]
 });

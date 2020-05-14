@@ -17,7 +17,6 @@
   import IManufacturerSettings from "@/models/IManufacturerSettings";
 
   const jsonData = namespace('jsonDataVuexModule')
-  const httpStatusMock = namespace('httpStatusMockVuexModule')
 
   @Component({
     name: 'App',
@@ -35,17 +34,9 @@
     @jsonData.Action private getContactInfo!: () => Promise<void>;
     @jsonData.Action private getManufacturerSettings!: () => Promise<void>;
 
-    @httpStatusMock.Action private getMockResponse!: (code: number) => Promise<void>;
-
     protected async mounted (): Promise<void> {
       await this.getContactInfo();
       await this.getManufacturerSettings();
-
-      await this.getMockResponse(404); // Not Found
-      await this.getMockResponse(403); // Forbidden
-      await this.getMockResponse(500); // Internal Server Error
-      await this.getMockResponse(503); // Service Unavailable
-      await this.getMockResponse(504); // Gateway Timeout
     }
   }
 </script>

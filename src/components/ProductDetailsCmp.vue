@@ -20,7 +20,8 @@
   import IProduct from "@/models/IProduct";
   import {namespace} from "vuex-class";
 
-  const jsonData = namespace('jsonDataVuexModule')
+  const jsonData = namespace('jsonDataVuexModule');
+  const httpStatusMock = namespace('httpStatusMockVuexModule');
 
   @Component({
     name: 'ProductDetailsCmp',
@@ -35,9 +36,22 @@
 
     @jsonData.Action private getProduct!: (id: number) => Promise<void>;
 
+    @httpStatusMock.Action private getMockResponse!: (code: number) => Promise<void>;
+
     protected async mounted (): Promise<void> {
       await this.getProduct(Number(this.$route.params.id));
       window.scrollTo(0, 0);
+
+      // const arr = [{ a: 1, b:2 }, { a: 1, c:2 }];
+      // arr[0].c.toFixed();
+
+
+      // await this.getMockResponse(404); // Not Found
+      // await this.getMockResponse(403); // Forbidden
+      await this.getMockResponse(500); // Internal Server Error
+      // await this.getMockResponse(503); // Service Unavailable
+      // await this.getMockResponse(504); // Gateway Timeout
+
     }
   }
 </script>

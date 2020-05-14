@@ -8,6 +8,8 @@ declare module "*.json" {
   export default value;
 }
 
+declare module 'logrocket-vuex';
+
 declare module 'vue-fragment' {
   import Vue, { AsyncComponent, ComponentOptions, PluginObject } from 'vue'
 
