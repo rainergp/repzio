@@ -9,12 +9,12 @@ export default class HttpStatusMockService implements IHttpStatusMockService {
   public async getMockResponse(code: number): Promise<void> {
     axios.get(`http://httpstat.us/${code}`)
       .then((response) => {
-        // if (response.status !== 200) {
-        //   Sentry.captureException(`${response.status}-${response.statusText}`);
-        // }
+        if (response.status !== 200) {
+          Sentry.captureException(`${response.status}-${response.statusText}`);
+        }
       })
       .catch((error) => {
-        // Sentry.captureException(error);
+        Sentry.captureException(error);
         throw error;
       });
   }

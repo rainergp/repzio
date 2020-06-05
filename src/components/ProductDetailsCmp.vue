@@ -48,7 +48,7 @@
 
       // await this.getMockResponse(404); // Not Found
       // await this.getMockResponse(403); // Forbidden
-      await this.getMockResponse(500); // Internal Server Error
+      // await this.getMockResponse(500); // Internal Server Error
       // await this.getMockResponse(503); // Service Unavailable
       // await this.getMockResponse(504); // Gateway Timeout
 
