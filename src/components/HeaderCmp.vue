@@ -25,18 +25,6 @@
   export default class HeaderCmp extends Vue {
     @Prop() private manufacturerSettings!: IManufacturerSettings;
     @Prop() private contactInfo!: IContactInfo;
-
-    @State private count!: number;
-    @Mutation(MutationType.INCREMENT) private increment: any;
-    @Mutation(MutationType.DECREMENT) private decrement: any;
-
-    private btnIncrementClick(event: Event): void {
-      this.increment(10);
-    }
-
-    private btnDecrementClick(event: Event): void {
-      this.decrement(10);
-    }
   }
 </script>
 
