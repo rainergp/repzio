@@ -44,7 +44,8 @@
     "@vue/cli-plugin-vuex": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
     "@vue/eslint-config-typescript": "^5.0.1",
-    "@vue/test-utils": "1.0.0-beta.31",
+    "@vue/test-utils": "^1.0.4",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-plugin-transform-decorators": "^6.24.1",
     "chai": "^4.1.2",
     "eslint": "^6.7.2",
@@ -53,6 +54,7 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "typescript": "~3.7.5",
+    "vue-jest": "^3.0.6",
     "vue-template-compiler": "^2.6.11",
     "vuex-module-decorators": "^0.16.1"
   },
@@ -86,6 +88,16 @@
         }
       }
     ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "vue-jest"
+    }
   },
   "browserslist": [
     "> 1%",

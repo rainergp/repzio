@@ -15,8 +15,6 @@
   import {Component, Prop, Vue} from 'vue-property-decorator';
   import IManufacturerSettings from "@/models/IManufacturerSettings";
   import IContactInfo from "@/models/IContactInfo";
-  import {State, Mutation} from "vuex-class";
-  import {MutationType} from "@/store/mutation-types";
 
   @Component({
     name: 'HeaderCmp',
