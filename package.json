@@ -32,6 +32,7 @@
   "devDependencies": {
     "@sentry/webpack-plugin": "^1.11.1",
     "@types/chai": "^4.2.8",
+    "@types/jest": "^24.0.19",
     "@types/mocha": "^5.2.4",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
@@ -40,6 +41,7 @@
     "@vue/cli-plugin-pwa": "~4.2.0",
     "@vue/cli-plugin-router": "~4.2.0",
     "@vue/cli-plugin-typescript": "~4.2.0",
+    "@vue/cli-plugin-unit-jest": "^4.5.4",
     "@vue/cli-plugin-unit-mocha": "~4.2.0",
     "@vue/cli-plugin-vuex": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
@@ -86,9 +88,22 @@
         "env": {
           "mocha": true
         }
+      },
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)",
+          "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        ],
+        "env": {
+          "jest": true
+        }
       }
     ]
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "jest": {
     "moduleFileExtensions": [
       "js",
@@ -97,12 +112,9 @@
     ],
     "transform": {
       ".*\\.(vue)$": "vue-jest"
-    }
+    },
+    "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
   "gitHooks": {
     "pre-commit": "lint-staged"
   },

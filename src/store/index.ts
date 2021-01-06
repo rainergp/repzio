@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import createPlugin from 'logrocket-vuex';
 import JSONDataVuexModule from "@/store/modules/JSONDataVuexModule";
 import HttpStatusMockVuexModule from "@/store/modules/HttpStatusMockVuexModule";
+import createPlugin from 'logrocket-vuex';
 import LogRocket from "logrocket";
 
 const logrocketPlugin = createPlugin(LogRocket);
